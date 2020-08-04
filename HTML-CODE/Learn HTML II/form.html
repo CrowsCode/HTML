@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Table Tutorial</title>
+		<meta charset="utf-8">
+
+		<style media="screen">
+		body {
+		  background-color: #fcd04b;
+		  font-family: Lato;
+		  color: white;
+		}
+		h1 {
+		  text-align: center;
+		  font-weight: 300;
+		}
+
+		.btn {
+		  outline: none;
+		  border: none;
+		  cursor: pointer;
+		  display: block;
+		  background-color: #fcad26;
+		  font-weight: 300px;
+		  color: white;
+		  text-transform: uppercase;
+		  letter-spacing: 2px;
+		  padding: 25px 80px;
+		  margin: 0 auto;
+		  border-radius: 20px;
+		  box-shadow: 0 6px #efa424;
+
+		}
+
+		.btn:hover {
+		  box-shadow: 0 4px #efa424;
+		  transform: translateY(2px);
+		}
+
+		.btn:active {
+		  box-shadow: none;
+		  transform: translateY(6px);
+		}
+		</style>
+		<script>
+
+
+		function showImage()
+		{
+			if(this.files && this.files[0])
+			{
+
+
+
+				//var FileReader = require('filereader');
+				var obj = new FileReader();
+				obj.onload = function(data)
+				{
+					var image = document.getElementById('image');
+					image.src = data.target.result;
+					image.style.display = "block";
+				}
+				obj.readAsDataURL(this.files[0]);
+			}
+
+
+
+		}
+
+
+
+
+function direction()
+{
+ // window fucntion page redirection
+ // my local href relative refences to the html fil >>
+	window.location = "form.html";
+}
+
+
+
+
+function validate(){
+
+
+ // Civilité :
+	if(document.getElementById("Monsieur").checked)
+	{
+	var cat = document.getElementById("Monsieur").value
+
+}else if(document.getElementById("Madame").checked)
+{
+	var cat = document.getElementById("Madame").value
+
+}else if(document.getElementById("Mademoiselle").checked)
+{
+	var cat = document.getElementById("Mademoiselle").value
+}else {
+	var cat = ""
+}
+// nom prenom et addresse :
+ var name = document.getElementById("name").value;
+ var address = document.getElementById("address").value;
+
+//localité:
+var select = document.getElementById("Localité");
+var options = select.getElementsByTagName('option');
+
+
+// platforme:
+if(document.getElementById("Windows").checked)
+{
+ var sys1 = document.getElementById("Windows").value
+ var platforme = sys1;
+}else{
+ sys1 = " ";
+
+ }
+
+
+if(document.getElementById("Macintosh").checked)
+{
+var sys2 = document.getElementById("Macintosh").value
+var platforme = sys1 + " " + sys2;
+}else{
+ sys2 = " ";
+
+ }
+
+
+
+if(document.getElementById("Unix").checked)
+{
+var sys3 = document.getElementById("Unix").value
+var platforme = sys1 + " " + sys2 + " " + sys3;
+}else{
+ sys3 = " ";
+
+ }
+
+// applications
+var multiple =document.getElementById("m");
+var choice ="";
+var i;
+for(i=0;i< multiple.length;i++){
+if(multiple.options[i].selected)
+{
+choice= choice+ " "+multiple.options[i].text}
+
+// day:
+
+var birth = document.getElementById("Birthday").value
+}
+// affichage page web:
+
+var x = document.images.item(0).src;
+//x = tostring(x);
+console.log(x);
+
+
+
+
+document.write("<b>Civilité: </b><br>" + cat + "<br><b>name: </b><br>" + name + "<br><b>address: </b><br>" + address + "<br><b>Localité: </b><br>" + options[select.selectedIndex].text + "<br><b>Platforme: </b><br>"+ platforme + "<br><b>Applications: </b><br>"+ choice + "<br><b>la date de naissance:</b><br>" + birth + "<br><b>Photo : <b><br><img src='"+ x +"' width='200' height='200'/>" + "<br><input type='button' value='retour' onclick='direction();'/>" );
+
+
+}
+
+
+
+
+
+
+
+</script>
+
+
+<body>
+
+<form name="tp" class="" action="send.js" method="post">
+
+
+ <table width="800" border="1" bordercolor="#fcd04b" cellspacing="2" cellpadding="2">
+
+		 <td>Civilité:</td>
+		 <td width ="70%">
+			 <input id ="Monsieur"     type="radio" name="civ" value="Monsieur">Monsieur
+				<input id="Madame"       type="radio" name="civ" value="Madame">Madame
+				 <input id="Mademoiselle"type="radio" name="civ" value="Mademoiselle">Mademoiselle
+		</td>
+	 </tr>
+
+	 <tr>
+		 <td >Nom/Prénom:</td>
+		 <td><input id = "name" type="text" name="name" maxlength="50"></td>
+	 </tr>
+
+	 <tr>
+		 <td>Address:</td>
+		 <td><input id="address" type="text" name="address" maxlength="50"></td>
+	 </tr>
+
+
+
+
+
+		<tr>
+      <td>No postal/Localité:</td>
+      <td>
+<select   name="Localité" id="Localité">
+	<option id = "Algerie" value="Algerie">Algerie</option>
+	<option id = "Russie"  value="Russie">Russie</option>
+	<option id = "Ukranie" value="Ukranie">Ukranie</option>
+	<option id = "Pologne" value="Pologne">Pologne</option>
+</select>
+			</td>
+    </tr>
+
+
+
+
+
+    <tr>
+      <td>Platforme(s):</td>
+      <td>
+				<input id = "Windows" type="checkbox" name="Platforme" value="Windows">Windows
+				<input id = "Macintosh"type="checkbox" name="Platforme" value="Macintosh">Macintosh
+				<input id = "Unix" type="checkbox" name="Platforme" value="Unix">Unix
+			</td>
+    </tr>
+
+
+
+
+
+		<tr>
+      <td>Applications(s):</td>
+      <td>
+<select multiple  name="m" id="m" size="4">
+	<option id="Bureautique" value="Bureautique">Bureautique</option>
+	<option id="DAO" value="DAO">DAO</option>
+	<option id="Statistique" value="Statistique">Statistique</option>
+	<option id="Internet" value="Internet">Internet</option>
+</select>
+			</td>
+    </tr>
+  <tr>
+	<td>date de naissance:<input id = "Birthday" type="date" name="bday"></td>
+
+  </tr>
+  <tr>
+  <td><img  style="display:" height="200" id="image" width="200">
+	<input type="file" onchange="showImage.call(this)"/></td>
+
+</tr>
+	<tr>
+      <td></td>
+			<td></td>
+      <td width="100%">
+			<button type="reset" name="Effacer" class="btn">Effacer</button><br>
+
+
+			<button type="button" class="btn" id="submit" onclick="validate();"/>Submit</button>
+
+			</td>
+    </tr>
+
+
+
+  </table>
+
+</form>
+
+
+
+</body>
+</html>
