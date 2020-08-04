@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>form registration</title>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    </head>
+    <body style="font-family: 'Ubuntu', sans-serif;">
+        <h1>Register</h1>
+   
+<form>
+    <table >                                 
+        <tbody> 
+            <tr>
+                <td><label for="fname">First name:</label><input id="fname" type="text" placeholder="Mohammed" required></td>
+                <td><label for="lname">Last name:</label><input id="lname" type="text" placeholder="Sahraoui" required></td>                        
+            </tr>
+            <tr>
+                <td>
+                    <label for="gender">Gender:</label><input id="gender" type="radio" value="male" name="gender"required>male
+                    <label for="gender"></label><input id="gender" type="radio" value="female" name="gender"required>female
+                </td>
+                                        
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label><input id="email" type="email" placeholder="email" required></td>
+                <td><label for="password">Password:</label><input id="passowrd" type="password" placeholder="password" required minlength="5" maxlength="10"></td>                        
+            </tr>
+            <tr>
+                <td><label for="birthday">Birthday:</label>
+                    <select name ="month" id="birthday" required>
+                        <option checked>Month</option>
+                    <option value="jan">jan</option>
+                    <option value="fev">fev</option> 
+                    <option value="mars">mars</option>
+                    <option value="avril">avril</option>     
+                    </select>
+                    <select name ="day" id="birthday" required>
+                    <option checked>Day</option>    
+                    <option value="1">1</option>
+                    <option value="2">2</option> 
+                    <option value="3">3</option>
+                    <option value="4">4</option>     
+                    </select>
+                    <select name ="year" id="birthday" required>
+                        <option checked>Years</option>     
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option> 
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>     
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="agree"></label><input id="agree" type="checkbox" name="agree" value="true" required>I agree to term of use</td>
+            </tr>
+            <tr>
+                <td><label for="submit-button"></label><input id="submit-button" type="submit"></td>
+            </tr>
+
+        </tbody>                                                           
+    </table>
+
+</form>
+     
+        
+    </body>
+</html>
